@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herramientas al Toque — Generador de contraseñas, contador de palabras y más</title>
+<meta name="description" content="Herramientas de texto gratis y sin registro: generador de contraseñas seguras, contador de palabras, conversor de mayúsculas, generador de lorem ipsum y números aleatorios.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8694256800195316" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Herramientas<span class="mono">AlToque</span></a>
+    <nav class="site-nav">
+      <a href="index.html#herramientas">Herramientas</a>
+      <a href="about.html">Sobre nosotros</a>
+      <a href="contact.html">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="tick">SIN REGISTRO · SIN DESCARGAS · GRATIS</p>
+    <h1>Herramientas de texto que resuelven algo en 5 segundos</h1>
+    <p>Contraseñas, conteo de palabras, mayúsculas, texto de relleno y números aleatorios. Todo funciona en tu navegador, nada se guarda en ningún servidor.</p>
+  </div>
+</section>
+
+<div class="ad-slot"><div class="ad-inner">Espacio publicitario — bloque de anuncio AdSense</div></div>
+
+<div class="wrap" id="herramientas">
+
+  <!-- Generador de contraseñas -->
+  <div class="tool">
+    <div class="tool-head"><h2>Generador de contraseñas seguras</h2><span class="id mono">01</span></div>
+    <div class="tool-body">
+      <div class="field">
+        <label for="pw-largo">Largo: <span id="pw-largo-val" class="mono">16</span></label>
+        <input type="range" id="pw-largo" min="6" max="48" value="16" style="width:100%">
+      </div>
+      <div class="checks">
+        <label><input type="checkbox" id="pw-mayus" checked> Mayúsculas</label>
+        <label><input type="checkbox" id="pw-num" checked> Números</label>
+        <label><input type="checkbox" id="pw-sim" checked> Símbolos</label>
+      </div>
+      <button class="btn" onclick="generarPassword()">Generar contraseña</button>
+      <div class="readout" id="pw-resultado">—</div>
+    </div>
+  </div>
+
+  <!-- Contador de palabras -->
+  <div class="tool">
+    <div class="tool-head"><h2>Contador de palabras y caracteres</h2><span class="id mono">02</span></div>
+    <div class="tool-body">
+      <div class="field">
+        <label for="wc-texto">Pegá o escribí tu texto</label>
+        <textarea id="wc-texto" placeholder="Escribí acá..."></textarea>
+      </div>
+      <div class="readout" id="wc-resultado">0 palabras <span class="hint">0 caracteres · 0 caracteres sin espacios</span></div>
+    </div>
+  </div>
+
+  <!-- Conversor de mayúsculas/minúsculas -->
+  <div class="tool">
+    <div class="tool-head"><h2>Conversor de mayúsculas y minúsculas</h2><span class="id mono">03</span></div>
+    <div class="tool-body">
+      <div class="field">
+        <label for="case-texto">Texto a convertir</label>
+        <textarea id="case-texto" placeholder="Escribí acá..."></textarea>
+      </div>
+      <div class="field inline" style="margin-bottom:14px;">
+        <button class="btn secondary" onclick="convertirCaso('upper')">MAYÚSCULAS</button>
+        <button class="btn secondary" onclick="convertirCaso('lower')">minúsculas</button>
+        <button class="btn secondary" onclick="convertirCaso('title')">Cada Palabra</button>
+        <button class="btn secondary" onclick="convertirCaso('sentence')">Oración normal</button>
+      </div>
+      <div class="readout" id="case-resultado" style="color:#E8E9F2;">El resultado aparece acá</div>
+    </div>
+  </div>
+
+  <!-- Generador de lorem ipsum -->
+  <div class="tool">
+    <div class="tool-head"><h2>Generador de texto de relleno (lorem ipsum)</h2><span class="id mono">04</span></div>
+    <div class="tool-body">
+      <div class="field">
+        <label for="lorem-parrafos">Cantidad de párrafos</label>
+        <input type="number" id="lorem-parrafos" value="3" min="1" max="20">
+      </div>
+      <button class="btn" onclick="generarLorem()">Generar texto</button>
+      <div class="readout" id="lorem-resultado" style="color:#E8E9F2;">—</div>
+    </div>
+  </div>
+
+  <!-- Generador de números aleatorios -->
+  <div class="tool">
+    <div class="tool-head"><h2>Generador de números aleatorios</h2><span class="id mono">05</span></div>
+    <div class="tool-body">
+      <div class="field inline">
+        <div><label for="rnd-min">Mínimo</label><input type="number" id="rnd-min" value="1"></div>
+        <div><label for="rnd-max">Máximo</label><input type="number" id="rnd-max" value="100"></div>
+        <div><label for="rnd-cant">Cuántos</label><input type="number" id="rnd-cant" value="1" min="1" max="20"></div>
+      </div>
+      <button class="btn" onclick="generarNumeros()">Generar</button>
+      <div class="readout" id="rnd-resultado">—</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="ad-slot"><div class="ad-inner">Espacio publicitario — bloque de anuncio AdSense</div></div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 Herramientas al Toque. Todos los derechos reservados.</div>
+    <nav>
+      <a href="about.html">Sobre nosotros</a>
+      <a href="privacy-policy.html">Política de privacidad</a>
+      <a href="contact.html">Contacto</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// Generador de contraseñas
+const pwLargo = document.getElementById('pw-largo');
+pwLargo.addEventListener('input', () => document.getElementById('pw-largo-val').textContent = pwLargo.value);
+function generarPassword(){
+  const largo = parseInt(pwLargo.value);
+  const usarMayus = document.getElementById('pw-mayus').checked;
+  const usarNum = document.getElementById('pw-num').checked;
+  const usarSim = document.getElementById('pw-sim').checked;
+  let chars = 'abcdefghijklmnopqrstuvwxyz';
+  if(usarMayus) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  if(usarNum) chars += '0123456789';
+  if(usarSim) chars += '!@#$%^&*()-_=+[]{}';
+  let resultado = '';
+  const array = new Uint32Array(largo);
+  crypto.getRandomValues(array);
+  for(let i=0;i<largo;i++){ resultado += chars[array[i] % chars.length]; }
+  document.getElementById('pw-resultado').textContent = resultado;
+}
+
+// Contador de palabras
+function contarPalabras(){
+  const texto = document.getElementById('wc-texto').value;
+  const palabras = texto.trim() === '' ? 0 : texto.trim().split(/\s+/).length;
+  const caracteres = texto.length;
+  const sinEspacios = texto.replace(/\s/g,'').length;
+  document.getElementById('wc-resultado').innerHTML = palabras + ' palabras <span class="hint">' + caracteres + ' caracteres · ' + sinEspacios + ' caracteres sin espacios</span>';
+}
+document.getElementById('wc-texto').addEventListener('input', contarPalabras);
+
+// Conversor de mayúsculas/minúsculas
+function convertirCaso(tipo){
+  const texto = document.getElementById('case-texto').value;
+  let resultado = '';
+  if(tipo === 'upper') resultado = texto.toUpperCase();
+  else if(tipo === 'lower') resultado = texto.toLowerCase();
+  else if(tipo === 'title') resultado = texto.replace(/\w\S*/g, t => t.charAt(0).toUpperCase() + t.substr(1).toLowerCase());
+  else if(tipo === 'sentence') resultado = texto.charAt(0).toUpperCase() + texto.slice(1).toLowerCase();
+  document.getElementById('case-resultado').textContent = resultado || 'El resultado aparece acá';
+}
+
+// Generador de lorem ipsum
+const loremBase = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.","Duis aute irure dolor in reprehenderit in voluptate velit esse.","Excepteur sint occaecat cupidatat non proident, sunt in culpa.","Curabitur pretium tincidunt lacus, sit amet mattis purus mattis.","Nulla facilisi. Praesent nec nisl a purus blandit viverra."];
+function generarLorem(){
+  const n = parseInt(document.getElementById('lorem-parrafos').value) || 1;
+  let out = '';
+  for(let p=0; p<n; p++){
+    let frases = [];
+    for(let f=0; f<5; f++){ frases.push(loremBase[Math.floor(Math.random()*loremBase.length)]); }
+    out += frases.join(' ') + '\n\n';
+  }
+  document.getElementById('lorem-resultado').textContent = out.trim();
+}
+
+// Generador de números aleatorios
+function generarNumeros(){
+  const min = parseInt(document.getElementById('rnd-min').value);
+  const max = parseInt(document.getElementById('rnd-max').value);
+  const cant = Math.min(parseInt(document.getElementById('rnd-cant').value) || 1, 20);
+  if(isNaN(min) || isNaN(max) || min > max){
+    document.getElementById('rnd-resultado').textContent = 'Revisá el rango (mínimo debe ser menor que máximo)';
+    return;
+  }
+  let nums = [];
+  for(let i=0;i<cant;i++){ nums.push(Math.floor(Math.random()*(max-min+1))+min); }
+  document.getElementById('rnd-resultado').textContent = nums.join(', ');
+}
+</script>
+
+</body>
+</html>
