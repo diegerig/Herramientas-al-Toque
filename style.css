@@ -1,0 +1,94 @@
+/* ============================================================
+   Herramientas al Toque — hoja de estilos base
+   Paleta: papel lavanda fría + tinta índigo + teal de señal
+   Tipografía: Sora (texto) + IBM Plex Mono (salidas generadas)
+   ============================================================ */
+
+:root{
+  --ink: #1B1D2A;
+  --paper: #F4F3F8;
+  --paper-raised: #FFFFFF;
+  --line: #D8D6E3;
+  --muted: #625F72;
+  --signal: #0E8388;
+  --signal-bg: #DCEFEE;
+  --warn: #C2483E;
+  --max-w: 900px;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Sora", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2{ font-family: "Sora", Arial, sans-serif; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 0.4em; line-height: 1.15; }
+a{ color: inherit; }
+.mono{ font-family: "IBM Plex Mono", "Courier New", monospace; }
+
+.wrap{ max-width: var(--max-w); margin: 0 auto; padding: 0 22px; }
+
+/* ---------- Header ---------- */
+.site-header{ border-bottom: 3px solid var(--ink); background: var(--paper); position: sticky; top: 0; z-index: 20; }
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; padding: 15px 22px; gap: 18px; }
+.logo{ font-weight: 800; font-size: 1.3rem; text-decoration: none; letter-spacing: -0.02em; }
+.logo .mono{ color: var(--signal); }
+.site-nav{ display:flex; gap:20px; font-weight:600; font-size:0.88rem; }
+.site-nav a{ text-decoration:none; border-bottom:2px solid transparent; padding-bottom:3px; }
+.site-nav a:hover{ border-bottom-color: var(--signal); }
+
+/* ---------- Hero ---------- */
+.hero{ padding: 42px 0 30px; border-bottom: 1px solid var(--line); }
+.hero .tick{ color: var(--signal); font-weight:700; font-size:0.82rem; margin-bottom:8px; }
+.hero h1{ font-size: clamp(1.7rem, 3.4vw, 2.4rem); max-width: 22ch; }
+.hero p{ max-width: 58ch; opacity:0.85; }
+
+/* ---------- Ad slots ---------- */
+.ad-slot{ max-width: var(--max-w); margin: 26px auto; padding: 0 22px; }
+.ad-slot .ad-inner{ border:1px dashed var(--line); background:var(--paper-raised); min-height:90px; display:flex; align-items:center; justify-content:center; font-size:0.75rem; color:var(--muted); }
+
+/* ---------- Tools (apiladas, ancho completo) ---------- */
+.tool{ background: var(--paper-raised); border:1px solid var(--line); border-radius:5px; margin: 22px 0; overflow:hidden; }
+.tool-head{ display:flex; align-items:center; justify-content:space-between; padding:14px 20px; border-bottom:1px solid var(--line); background: var(--signal-bg); }
+.tool-head h2{ font-size:1.05rem; margin:0; }
+.tool-head .id{ font-size:0.72rem; color:var(--signal); font-weight:700; }
+.tool-body{ padding: 20px; }
+.field{ margin-bottom: 12px; }
+.field label{ display:block; font-size:0.82rem; font-weight:600; color:var(--muted); margin-bottom:4px; }
+.field input[type=number], .field input[type=text], .field select, textarea{
+  width:100%; padding:9px 10px; border:1px solid var(--line); border-radius:3px;
+  font-family:"IBM Plex Mono", monospace; font-size:0.92rem; background:var(--paper); color:var(--ink);
+}
+textarea{ resize: vertical; min-height: 90px; }
+.field.inline{ display:flex; gap:10px; flex-wrap:wrap; }
+.field.inline > div{ flex:1; min-width:120px; }
+.checks{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:12px; font-size:0.85rem; }
+.checks label{ display:flex; align-items:center; gap:6px; font-weight:500; color:var(--ink); }
+
+.btn{ font-family:"Sora",sans-serif; font-weight:700; font-size:0.88rem; background:var(--ink); color:#fff; border:none; padding:10px 18px; border-radius:3px; cursor:pointer; }
+.btn:hover{ background: var(--signal); }
+.btn.secondary{ background: transparent; color: var(--muted); border:1px solid var(--line); }
+
+.readout{ margin-top:14px; background: var(--ink); color: #7FE0DA; border-radius:3px; padding:14px 16px; font-family:"IBM Plex Mono",monospace; font-size:1.15rem; font-weight:700; word-break: break-all; min-height: 1.4em; }
+.readout .hint{ font-family:"Sora",sans-serif; font-weight:400; font-size:0.76rem; color:#9CA3AF; display:block; margin-top:6px; }
+
+/* ---------- Simple pages ---------- */
+.simple-page{ max-width: 680px; margin:0 auto; padding: 48px 22px 72px; }
+.simple-page h1{ font-size:1.8rem; margin-bottom:20px; }
+.simple-page h2{ font-size:1.1rem; margin-top:1.7em; }
+.simple-page p{ max-width: 66ch; }
+
+/* ---------- Footer ---------- */
+.site-footer{ border-top:3px solid var(--ink); margin-top:40px; padding:26px 0 36px; font-size:0.82rem; color:var(--muted); }
+.site-footer .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; }
+.site-footer a{ color:var(--muted); text-decoration:none; margin-left:16px; }
+.site-footer a:first-child{ margin-left:0; }
+
+@media (max-width: 640px){ .site-nav{ display:none; } }
+:focus-visible{ outline:2px solid var(--signal); outline-offset:2px; }
